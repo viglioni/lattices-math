@@ -19,7 +19,9 @@
     "jest": "^26.1.0"
   },
   "scripts": {
-    "test": "jest"
+      "test": "jest",
+    "lint:js": "eslint . --ext .js,.json",
+      "lint:js:fix": "yarn lint:js -- --fix"
   },
   "husky": {
     "hooks": {
@@ -29,7 +31,7 @@
   },
   "lint-staged": {
     "*.{js, json}": [
-   "./node_modules/.bin/eslint --fix"
-    ]
+    "eslint . --fix", "git add"
+  ]
   }
 }

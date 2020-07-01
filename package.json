@@ -8,6 +8,7 @@
   "dependencies": {
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mathjs": "^7.0.2",
@@ -22,10 +23,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   },
-"lint-staged": {
+  "lint-staged": {
     "*.js": [
       "eslint --fix --quiet"
     ]

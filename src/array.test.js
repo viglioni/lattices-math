@@ -1,6 +1,6 @@
-const {emptyArray} = require('./array');
-const {length} = require('ramda');
+const { emptyArray } = require('./array')
+const { length } = require('ramda')
 
-test('should have length = 100', ()=>{
-    expect(length(emptyArray(100))).toBe(100);
-});
+test('should have length = 100', () => {
+  expect(length(emptyArray(100))).toBe(100)
+})

@@ -20,16 +20,16 @@
   },
   "scripts": {
       "test": "jest",
-    "lint:js": "eslint . --ext .js,.json",
+    "lint:js": "eslint . --ext .js",
       "lint:js:fix": "yarn lint:js -- --fix"
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test && lint-staged"
+      "pre-commit": "yarn test && lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js, json}": [
+    "*.js": [
     "eslint . --fix"
   ]
   }

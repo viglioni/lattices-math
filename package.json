@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.{js, json}": [
-      "eslint --fix --quiet"
+ "eslint --fix --quiet"
     ]
   }
 }

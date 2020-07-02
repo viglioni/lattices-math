@@ -10,6 +10,8 @@
     "plugins": ["prettier", "jest"],
     "rules": {
         "prettier/prettier": ["error"],
-        "no-console": "error"
+        "no-console": "error",
+        "semi" : "off"
     }
 }
+

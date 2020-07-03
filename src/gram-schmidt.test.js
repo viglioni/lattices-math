@@ -7,10 +7,10 @@ const { fraction, round } = require('mathjs')
  */
 const equalsRounded = (a, b) => equals(round(a, 4), round(b, 4))
 const fractionFy = map(apply(fraction))
+
 /*
  * tests
  */
-
 test('should return 0 vector when u is 0', () => {
   const proj = projection([0, 0, 0, 0, 0])([1, 2, 3, 4, 5])
   expect(equals(proj, fraction([0, 0, 0, 0, 0]))).toBeTruthy()

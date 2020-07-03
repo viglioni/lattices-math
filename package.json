@@ -27,6 +27,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit" : "sh ./scripts/test-existance.sh",
       "pre-push": "yarn test && lint-staged"
     }
   },

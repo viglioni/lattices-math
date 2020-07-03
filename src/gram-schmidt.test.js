@@ -2,6 +2,15 @@ const { equals, map, apply, unapply, forEach } = require('ramda')
 const { projection } = require('./gram-schmidt')
 const { fraction, round } = require('mathjs')
 
+/*
+ * helpers
+ */
+const equalsRounded = (a, b) => equals(round(a, 4), round(b, 4))
+const fractionFy = map(apply(fraction))
+/*
+ * tests
+ */
+
 test('should return 0 vector when u is 0', () => {
   const proj = projection([0, 0, 0, 0, 0])([1, 2, 3, 4, 5])
   expect(equals(proj, fraction([0, 0, 0, 0, 0]))).toBeTruthy()
@@ -9,7 +18,7 @@ test('should return 0 vector when u is 0', () => {
 
 test('should return correct values', () => {
   const testHelper = apply((u, v, result) => {
-    expect(equals(round(projection(u)(v), 4), round(map(apply(fraction), result), 4))).toBeTruthy()
+    expect(equalsRounded(projection(u)(v), fractionFy(result))).toBeTruthy()
   })
   const valuesToTest = [
     [

@@ -1,8 +1,12 @@
-const { all, equals } = require('ramda')
+const { all, equals, compose } = require('ramda')
+const { number } = require('mathjs')
 
 const emptyArray = (n) => Array(n).fill()
 
-const isZeroVector = all(equals(0))
+/*
+ * isZeroVector :: [integer | rational] => bool
+ */
+const isZeroVector = compose(all(equals(0)), number)
 
 module.exports = {
   emptyArray,

@@ -16,12 +16,14 @@
     "ramda": "^0.27.0"
   },
   "devDependencies": {
+    "eslint-plugin-jest": "^23.17.1",
     "jest": "^26.1.0"
   },
   "scripts": {
-      "test": "jest",
+    "test": "jest",
     "lint:js": "eslint . --ext .js",
-      "lint:js:fix": "yarn lint:js -- --fix"
+    "lint:js:fix": "yarn lint:js -- --fix",
+    "lint:file": "eslint $1 --fix"
   },
   "husky": {
     "hooks": {
@@ -30,7 +32,7 @@
   },
   "lint-staged": {
     "*.js": [
-    "eslint . --fix"
-  ]
+      "eslint . --fix"
+    ]
   }
 }

@@ -5,7 +5,7 @@ find_code_files () {
 }
 
 find_test_files () {
-  echo $@ | sed -e 's/\.js/.test.js/g' -e 's/\.ts/.test.ts/g'
+  echo $@ | sed -e 's/\.js/.spec.js/g' -e 's/\.ts/.spec.ts/g'
 }
 
 
@@ -20,7 +20,7 @@ main (){
     then true
     else
       ret=false
-      echo $( echo $file | sed 's/\.test//') does not have a test file!
+      echo $( echo $file | sed 's/\.spec//') does not have a test file!
     fi
   done
 

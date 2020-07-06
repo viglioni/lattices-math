@@ -1,12 +1,17 @@
-const { equals, map, apply, unapply, forEach } = require('ramda')
-const { projection } = require('./gram-schmidt')
-const { fraction, round } = require('mathjs')
+import { equals, map, apply, unapply, forEach } from 'ramda'
+import { projection } from './gram-schmidt'
+import { fraction, round, number as numberfy, Fraction} from 'mathjs'
+
+declare function fraction( x: number[]|Fraction[]):Fraction[]
+declare function fraction( x: number[] ): Fraction
+declare function round(x: Fraction[], n: number):number[]
 
 /*
  * helpers
  */
-const equalsRounded = (a, b) => equals(round(a, 4), round(b, 4))
-const fractionFy = map(apply(fraction))
+const equalsRounded = (a : Fraction[], b : Fraction[]) : boolean =>
+  equals(round(a, 4), round(b, 4))
+const fractionFy: (r: number[][])=>Fraction[] = map(apply(fraction))
 
 /*
  * tests
@@ -17,7 +22,7 @@ test('should return 0 vector when u is 0', () => {
 })
 
 test('should return correct values', () => {
-  const testHelper = apply((u, v, result) => {
+  const testHelper = apply((u:number[], v:number[], result:number[][]) => {
     expect(equalsRounded(projection(u)(v), fractionFy(result))).toBeTruthy()
   })
   const valuesToTest = [

@@ -1,5 +1,5 @@
-const { randInt, rand, randIntArr } = require('./random')
-const { length, map, and } = require('ramda')
+import { randInt, rand, randIntArr } from './random'
+import { length, map, and } from 'ramda'
 
 test('should be integer and between 10 and 20', () => {
   const result = randInt(10, 20)

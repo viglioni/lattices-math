@@ -6,17 +6,26 @@
   "author": "Laura Viglioni",
   "license": "GPLv3",
   "dependencies": {
-    "eslint": "^7.3.1",
+    "@types/mathjs": "^6.0.5",
+    "@types/ramda": "^0.27.7",
+    "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mathjs": "^7.0.2",
     "prettier": "^2.0.5",
-    "ramda": "^0.27.0"
+    "ramda": "^0.27.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "eslint-plugin-jest": "^23.17.1",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.3",
+    "babel-jest": "^26.1.0",
+    "eslint-plugin-jest": "^23.18.0",
     "jest": "^26.1.0"
   },
   "scripts": {
@@ -27,8 +36,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit" : "sh ./scripts/test-existance.sh",
-      "pre-push": "yarn test && lint-staged"
+      "pre-commit": "sh ./scripts/test-existance.sh",
+      "pre-push": "yarn test && lint-staged && sh ./scripts/test-existance.sh"
     }
   },
   "lint-staged": {

@@ -1,13 +1,13 @@
 import { matrix, Matrix, det as determinant } from 'mathjs'
-import { randArr, randIntArr } from './random'
-import { map, cond, equals, always as Return } from 'ramda'
-import { emptyArray } from './array'
+import { randArr, randIntArr, RandArr } from './random'
+import { map, equals, always as Return, ifElse } from 'ramda'
+import { emptyVector } from './vector'
 
 /*
  * Types
  */
 export type GenerateBasis = (r: number, m?: number, n?: number) => Matrix
-export type GenerateBasisGen = (t: string) => GenerateBasis
+export type GenerateBasisGen = (t: "int" | "float" ) => GenerateBasis
 
 /*
  * Functions
@@ -21,16 +21,12 @@ export type GenerateBasisGen = (t: string) => GenerateBasis
  */
 export const generateBasis : GenerateBasisGen =
   (entriesType) => (rank, min = -100, max = 100) => {
-    const randGen = cond([
-      [equals('int'), Return(randIntArr)],
-      [equals('float'), Return(randArr)]
-    ])(entriesType)
-
-  const vectors = map(() => randGen(rank, min, max), emptyArray(rank))
-  const basis = matrix(vectors)
-  if (determinant(basis) !== 0) return basis
-  else return generateBasis(entriesType)(rank, min, max)
-}
+    const randGen : RandArr = ifElse(equals('int'), Return(randIntArr), Return(randArr))(entriesType)
+    const vectors = map(() => randGen(rank, min, max), emptyVector(rank))
+    const basis = matrix(vectors)
+    if (determinant(basis) !== 0) return basis
+    else return generateBasis(entriesType)(rank, min, max)
+  }
 
 /*
  * genIntBasis

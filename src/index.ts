@@ -1,10 +1,10 @@
-import * as array from './array'
+import * as vector from './vector'
 import * as basis from './basis'
 import * as gram from './gram-schmidt'
 import * as random from './random'
 
 export default {
-  ...array,
+  ...vector,
   ...basis,
   ...gram,
   ...random,

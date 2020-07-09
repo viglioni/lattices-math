@@ -6,10 +6,11 @@
     "outDir": "dist",
     "sourceMap": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.*s"]
+  "exclude": ["node_modules", "**/*.spec.*s"]
 }
 
 

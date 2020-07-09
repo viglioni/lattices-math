@@ -1,5 +1,5 @@
 import  { compose, map } from'ramda'
-import  { emptyArray } from'./array'
+import  { emptyVector } from'./vector'
 
 /*
  * Types
@@ -30,7 +30,7 @@ export const randInt = compose(Math.floor, rand)
  * Generates an array of random numbers given type (int|float) and a range
  */
 export const randArrGeneric : RandArrGen =
-  (randFunc) => (n, min, max) => map(() => randFunc(min, max), emptyArray(n))
+  (randFunc) => (n, min, max) => map(() => randFunc(min, max), emptyVector(n))
 
 /*
  * randArr

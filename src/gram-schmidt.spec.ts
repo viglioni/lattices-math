@@ -1,10 +1,7 @@
 import { equals, map, apply, unapply, forEach } from 'ramda'
 import { projection } from './gram-schmidt'
 import { fraction, round, number as numberfy, Fraction} from 'mathjs'
-
-declare function fraction( x: number[]|Fraction[]):Fraction[]
-declare function fraction( x: number[] ): Fraction
-declare function round(x: Fraction[], n: number):number[]
+import {vecToQ} from './rational'
 
 /*
  * helpers
@@ -18,7 +15,7 @@ const fractionFy: (r: number[][])=>Fraction[] = map(apply(fraction))
  */
 test('should return 0 vector when u is 0', () => {
   const proj = projection([0, 0, 0, 0, 0])([1, 2, 3, 4, 5])
-  expect(equals(proj, fraction([0, 0, 0, 0, 0]))).toBeTruthy()
+  expect(equals(proj, vecToQ([0, 0, 0, 0, 0]))).toBeTruthy()
 })
 
 test('should return correct values', () => {

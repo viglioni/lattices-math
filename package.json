@@ -30,6 +30,7 @@
   },
   "scripts": {
     "test": "jest",
+    "build" : "tsc",
     "lint:js": "eslint . --ext .js",
     "lint:js:fix": "yarn lint:js -- --fix",
     "lint:file": "eslint $1 --fix"
@@ -37,7 +38,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "sh ./scripts/test-existance.sh && sh ./scripts/no-js-allowed.sh",
-      "pre-push": "yarn test && lint-staged && sh ./scripts/test-existance.sh"
+      "pre-push": "yarn test && lint-staged && sh ./scripts/test-existance.sh && sh ./scripts/no-js-allowed.sh"
     }
   },
   "lint-staged": {

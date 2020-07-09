@@ -37,6 +37,7 @@ generate_index(){
   echo "" >> ./src/index.ts
   echo "// this file is generated automatically with 'yarn index'" >> ./src/index.ts
   echo "// please do not change this file" >> ./src/index.ts
+  git add ./src/index.ts
 }
 
 generate_index

@@ -4,7 +4,7 @@
   "description": "functions related to lattices (math)",
   "main": "index.js",
   "author": "Laura Viglioni",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "dependencies": {
     "@types/mathjs": "^6.0.5",
     "@types/ramda": "^0.27.7",
@@ -30,16 +30,11 @@
   },
   "scripts": {
     "test": "jest",
+    "index" : "sh ./scripts/generate-index.sh",
     "build" : "tsc",
     "lint:js": "eslint . --ext .js",
     "lint:js:fix": "yarn lint:js -- --fix",
     "lint:file": "eslint $1 --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "sh ./scripts/test-existance.sh && sh ./scripts/no-js-allowed.sh",
-      "pre-push": "yarn test && lint-staged && sh ./scripts/test-existance.sh && sh ./scripts/no-js-allowed.sh"
-    }
   },
   "lint-staged": {
     "*.ts": [

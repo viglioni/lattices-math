@@ -4,34 +4,40 @@
   "description": "functions related to lattices (math)",
   "main": "index.js",
   "author": "Laura Viglioni",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "dependencies": {
-    "eslint": "^7.3.1",
+    "@types/mathjs": "^6.0.5",
+    "@types/ramda": "^0.27.7",
+    "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mathjs": "^7.0.2",
     "prettier": "^2.0.5",
-    "ramda": "^0.27.0"
+    "ramda": "^0.27.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "eslint-plugin-jest": "^23.17.1",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.3",
+    "babel-jest": "^26.1.0",
+    "eslint-plugin-jest": "^23.18.0",
     "jest": "^26.1.0"
   },
   "scripts": {
     "test": "jest",
+    "index" : "sh ./scripts/generate-index.sh",
+    "build" : "tsc",
     "lint:js": "eslint . --ext .js",
     "lint:js:fix": "yarn lint:js -- --fix",
     "lint:file": "eslint $1 --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.js": [
+    "*.ts": [
       "eslint . --fix"
     ]
   }

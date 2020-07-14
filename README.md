@@ -1,5 +1,7 @@
 # lattices-math
 
+This projects goals is to implement some functions related to [Lattices](https://en.wikipedia.org/wiki/Lattice_(group)) and abstract algebra. Also, in the future, Lattice based criptography functions.
+
 ## Install
 
 You must have `node` (and `yarn` optional) installed
